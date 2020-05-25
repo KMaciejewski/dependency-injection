@@ -1,8 +1,13 @@
 # Inversion of Control (IoC)
-Framework is managing the construction of components and placing them in the context, developer is not creating an object 
-because framework is providing an instantiated object.
+Runtime environment (or framework) which inject dependencies. Framework is managing the construction of components 
+and placing them in the context, developer is not creating an object because framework is providing an instantiated one.
 * Is a technique to allow dependencies to be injected at runtime.
 * Dependencies are not predetermined.
+
+# Dependency Inversion vs Dependency Injection
+Dependency Inversion addresses abstraction.
+Dependency Injection refers into the injection of dependencies into a class.
+
 
 # Dependency Injection (DI)
 Is a mechanism creating connections between class fields and components in context without creating instances of injected components.
@@ -16,9 +21,10 @@ Is a mechanism creating connections between class fields and components in conte
 ### Types of dependency injection:
 * By class properties - least preferred
     - can be public or private properties
-    - using private properties is EVIL - problem with testing (how to inject dependency in private property, it requires extra work)
+    - using private properties - Spring inject the dependency using reflection at runtime. It is considered as a bad practice (EVIL) - problem with testing 
+        (how to inject dependency in private property, it requires extra work). 
 * By setters
-* By constructor - most preferable
+* By constructor - most preferable because it requires dependencies to be injected when the class is instantiated.
 
 
 ### Concrete classes vs interfaces
@@ -47,3 +53,5 @@ and none of them has @Qualifier annotation. In other words Spring will choose Pr
 Profiles allow to control Spring application to run in different configuration, ie.
 different data sources configuration like H2 for development profile and Oracle databases for production profile.
 
+### Default profile
+Tell Spring which profile to use in case none specified in application properties.
