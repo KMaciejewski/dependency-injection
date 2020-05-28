@@ -5,6 +5,7 @@ import com.km.dependencyinjection.controller.I18nController;
 import com.km.dependencyinjection.controller.MyController;
 import com.km.dependencyinjection.controller.PropertyInjectedController;
 import com.km.dependencyinjection.controller.SetterBasedController;
+import com.km.dependencyinjection.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -34,6 +35,11 @@ public class DependencyInjectionApplication {
         System.out.println("--------------- Constructor ---------------");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) context.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+
+        System.out.println(fakeDataSource.getUsername());
     }
 
 }
